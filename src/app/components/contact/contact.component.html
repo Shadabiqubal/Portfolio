@@ -1,0 +1,103 @@
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Get In <span>Touch</span></h2>
+    
+    <div class="contact-content">
+      <div class="contact-info" data-aos="fade-right">
+        <h3>Contact Information</h3>
+        <p>Feel free to reach out to me for any questions or opportunities!</p>
+        
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-content">
+              <h4>Email</h4>
+              <a href="mailto:your.email@example.com">shadabiqbal61&#64;gmail.com</a>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="info-content">
+              <h4>Phone</h4>
+              <a href="tel:+1234567890">+91 8877238943</a>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <h4>Location</h4>
+              <p>Gurugram, Haryana, INDIA</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-social">
+          <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" data-aos="fade-left">
+        <div class="form-group">
+          <input 
+            type="text" 
+            formControlName="name" 
+            placeholder="Your Name"
+            [class.error]="submitted && contactForm.controls['name'].errors">
+          <div *ngIf="submitted && contactForm.controls['name'].errors" class="error-message">
+            Name is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <input 
+            type="email" 
+            formControlName="email" 
+            placeholder="Your Email"
+            [class.error]="submitted && contactForm.controls['email'].errors">
+          <div *ngIf="submitted && contactForm.controls['email'].errors" class="error-message">
+            Valid email is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <input 
+            type="text" 
+            formControlName="subject" 
+            placeholder="Subject"
+            [class.error]="submitted && contactForm.controls['subject'].errors">
+          <div *ngIf="submitted && contactForm.controls['subject'].errors" class="error-message">
+            Subject is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <textarea 
+            formControlName="message" 
+            placeholder="Your Message"
+            [class.error]="submitted && contactForm.controls['message'].errors"></textarea>
+          <div *ngIf="submitted && contactForm.controls['message'].errors" class="error-message">
+            Message must be at least 10 characters
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Send Message</span>
+          <span *ngIf="isLoading">Sending...</span>
+          <i class="fas fa-paper-plane" *ngIf="!isLoading"></i>
+          <i class="fas fa-spinner fa-spin" *ngIf="isLoading"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

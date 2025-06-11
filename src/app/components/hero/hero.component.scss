@@ -1,0 +1,261 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+// @import '../../../styles/animations';
+
+.hero {
+  min-height: 100vh;
+  padding: 15rem 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  .container {
+    @include flex-between;
+    gap: 5rem;
+    
+    @include responsive(tab-port) {
+      flex-direction: column;
+      gap: 8rem;
+    }
+  }
+  
+  &-content {
+    flex: 1;
+    
+    .subtitle {
+      font-size: 1.8rem;
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    
+    .title {
+      font-size: 6rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, $text-primary, lighten($text-primary, 15%));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      
+      @include responsive(tab-port) {
+        font-size: 5rem;
+      }
+      
+      @include responsive(phone) {
+        font-size: 4rem;
+      }
+    }
+    
+    .profession {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: $text-secondary;
+      min-height: 3.5rem;
+      
+      .typed-text {
+        @include gradient-text;
+      }
+      
+      .cursor {
+        display: inline-block;
+        width: 0.3rem;
+        height: 3rem;
+        background: $primary-color;
+        margin-left: 0.3rem;
+        animation: blink 1s infinite;
+        
+        @include responsive(phone) {
+          height: 2.5rem;
+        }
+      }
+    }
+    
+    .description {
+      font-size: 1.8rem;
+      color: $text-secondary;
+      margin-bottom: 3rem;
+      max-width: 60rem;
+    }
+    
+    &-actions {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 5rem;
+      
+      .btn {
+        font-size: 1.6rem;
+        padding: 1.2rem 2.5rem;
+        
+        i {
+          margin-left: 0.8rem;
+        }
+      }
+      
+      @include responsive(phone) {
+        flex-direction: column;
+      }
+    }
+    
+    &-social {
+      display: flex;
+      gap: 2rem;
+      
+      a {
+        @include flex-center;
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 50%;
+        background: $bg-secondary;
+        color: $text-primary;
+        font-size: 1.8rem;
+        transition: $transition-normal;
+        
+        &:hover {
+          background: $gradient-primary;
+          transform: translateY(-0.5rem);
+          box-shadow: 0 1rem 2rem rgba($primary-color, 0.3);
+        }
+      }
+    }
+  }
+  
+  &-image {
+    flex: 1;
+    position: relative;
+    
+    .image-wrapper {
+      width: 40rem;
+      height: 40rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5rem solid $bg-secondary;
+      position: relative;
+      z-index: 1;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      @include responsive(tab-land) {
+        width: 35rem;
+        height: 35rem;
+      }
+      
+      @include responsive(tab-port) {
+        width: 30rem;
+        height: 30rem;
+      }
+    }
+    
+    .glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 45rem;
+      height: 45rem;
+      border-radius: 50%;
+      background: $gradient-primary;
+      filter: blur(5rem);
+      opacity: 0.3;
+      z-index: 0;
+      animation: pulse 8s infinite ease-in-out;
+      
+      @include responsive(tab-land) {
+        width: 40rem;
+        height: 40rem;
+      }
+      
+      @include responsive(tab-port) {
+        width: 35rem;
+        height: 35rem;
+      }
+    }
+  }
+
+
+  .hero-social {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem; // space between icons
+
+  a {
+    font-size: 2.4rem; // increase icon size
+    //color: $text-color; // or use a specific color
+    transition: color 0.3s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  @include responsive(tab-port) {
+    justify-content: center;
+    gap: 1rem;
+    a {
+      font-size: 2rem;
+    }
+  }
+}
+
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 0.6rem;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+
+    i {
+      font-size: 1.6rem;
+    }
+  }
+
+  .btn-primary {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+
+    &:hover {
+      background-color: darken($primary-color, 8%);
+    }
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: $primary-color;
+    border: 1.5px solid $primary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: #fff;
+    }
+  }
+
+  @include responsive(tab-port) {
+    justify-content: center;
+    .btn {
+      font-size: 1.5rem;
+      padding: 0.8rem 1.6rem;
+    }
+  }
+}
+
+
+}

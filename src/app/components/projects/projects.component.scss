@@ -1,0 +1,170 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.projects {
+  background: $bg-secondary;
+  
+  &-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+    flex-wrap: wrap;
+    
+    button {
+      padding: 1rem 2.5rem;
+      background: $glass-color;
+      border: none;
+      border-radius: 0.5rem;
+      color: $text-primary;
+      font-size: 1.6rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: $transition-normal;
+      
+      &:hover {
+        background: $gradient-primary;
+      }
+      
+      &.active {
+        background: $gradient-primary;
+        box-shadow: $shadow-md;
+      }
+    }
+  }
+  
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+    gap: 3rem;
+    
+    @include responsive(phone) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .project-card {
+  background: $glass-color;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-1.5rem);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    .project-image img {
+      transform: scale(1.05);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    background: linear-gradient(135deg, transparent, $primary-color);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  .project-image {
+    height: 25rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+    }
+
+    .project-links {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @include flex-center;
+      gap: 2rem;
+      background: rgba($bg-primary, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .project-link {
+        @include flex-center;
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 50%;
+        background: $gradient-primary;
+        color: $text-primary;
+        font-size: 1.6rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: scale(1.2) rotate(10deg);
+          box-shadow: 0 0 10px rgba($primary-color, 0.4);
+        }
+      }
+    }
+
+    &:hover .project-links {
+      opacity: 1;
+    }
+  }
+
+  .project-info {
+    z-index: 2;
+    padding: 2rem 2.5rem;
+
+    h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: $text-primary;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: $text-secondary;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    span {
+      font-size: 1.2rem;
+      padding: 0.5rem 1.3rem;
+      background: lighten($bg-secondary, 5%);
+      color: $primary-color;
+      border: 1px solid $primary-color;
+      border-radius: 50rem;
+      transition: background 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background: $primary-color;
+        color: #fff;
+      }
+    }
+  }
+}
+
+}

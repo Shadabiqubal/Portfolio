@@ -1,0 +1,70 @@
+<section class="skills" id="skills">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">My <span>Skills</span></h2>
+    
+    <div class="skills-tabs" data-aos="fade-up">
+      <button 
+        *ngFor="let tab of tabs" 
+        [class.active]="activeTab === tab.id"
+        (click)="activeTab = tab.id">
+        {{ tab.label }}
+      </button>
+    </div>
+    
+    <div class="skills-content" data-aos="fade-up">
+      <div class="skills-grid" *ngIf="activeTab === 'frontend'">
+        <div class="skill-item" *ngFor="let skill of frontendSkills">
+          <div class="skill-info">
+            <div class="skill-icon">
+              <div class="icon-wrapper">
+                <img [src]="'assets/images/skills/' + skill.icon" [alt]="skill.name">
+              </div>
+            </div>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+          <div class="skill-progress">
+            <div class="progress-bar" [style.width.%]="skill.level">
+              <!-- <span class="progress-value">{{ skill.level }}%</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="skills-grid" *ngIf="activeTab === 'backend'">
+        <div class="skill-item" *ngFor="let skill of backendSkills">
+          <div class="skill-info">
+            <div class="skill-icon">
+              <div class="icon-wrapper">
+              <img [src]="'assets/images/skills/' + skill.icon" [alt]="skill.name">
+            </div>
+            </div>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+          <div class="skill-progress">
+            <div class="progress-bar" [style.width.%]="skill.level">
+              <!-- <span class="progress-value">{{ skill.level }}%</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="skills-grid" *ngIf="activeTab === 'tools'">
+        <div class="skill-item" *ngFor="let skill of tools">
+          <div class="skill-info">
+            <div class="skill-icon">
+              <div class="icon-wrapper">
+              <img [src]="'assets/images/skills/' + skill.icon" [alt]="skill.name">
+              </div>
+            </div>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+          <div class="skill-progress">
+            <div class="progress-bar" [style.width.%]="skill.level">
+              <!-- <span class="progress-value">{{ skill.level }}%</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

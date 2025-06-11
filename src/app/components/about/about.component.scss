@@ -1,0 +1,142 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.about {
+  background: $bg-secondary;
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    align-items: center;
+    
+    @include responsive(tab-port) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &-image {
+    position: relative;
+    
+    .image-wrapper {
+      border-radius: 2rem;
+      overflow: hidden;
+      border: 1rem solid $glass-color;
+      box-shadow: $shadow-xl;
+      
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+  
+  &-info {
+    h3 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: $text-primary;
+    }
+    
+    p {
+      font-size: 1.6rem;
+      color: $text-secondary;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+  }
+  
+  &-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+    
+    @include responsive(phone) {
+      grid-template-columns: 1fr;
+    }
+    
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: $glass-color;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      transition: $transition-normal;
+      
+      &:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: $shadow-lg;
+      }
+      
+      &-icon {
+        @include flex-center;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background: $gradient-primary;
+        color: $text-primary;
+        font-size: 1.8rem;
+      }
+      
+      &-content {
+        span {
+          display: block;
+          font-size: 1.4rem;
+          color: $text-secondary;
+          margin-bottom: 0.5rem;
+        }
+        
+        p {
+          font-size: 1.6rem;
+          color: $text-primary;
+          margin: 0;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  
+  &-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    
+    .stat-item {
+      background: $glass-color;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      transition: $transition-normal;
+      
+      &:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: $shadow-lg;
+        background: $gradient-primary;
+        
+        .stat-number, .stat-text {
+          color: $text-primary;
+        }
+      }
+      
+      &-info {
+        .stat-number {
+          font-size: 3rem;
+          font-weight: 700;
+          color: $primary-color;
+          display: block;
+          margin-bottom: 0.5rem;
+          transition: $transition-normal;
+        }
+        
+        .stat-text {
+          font-size: 1.6rem;
+          color: $text-secondary;
+          transition: $transition-normal;
+        }
+      }
+    }
+  }
+}

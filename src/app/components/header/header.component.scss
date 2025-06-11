@@ -1,0 +1,171 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 2rem 0;
+  transition: $transition-normal;
+  
+  &.scrolled {
+    background: $glass-color;
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    padding: 1.5rem 0;
+    box-shadow: $shadow-lg;
+  }
+  
+  .container {
+    @include flex-between;
+  }
+  
+  .logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    text-decoration: none;
+    
+    span {
+      @include gradient-text;
+    }
+  }
+  
+  .nav {
+    @include flex-between;
+    gap: 5rem;
+    
+    ul {
+      @include flex-between;
+      gap: 4rem;
+      list-style: none;
+      
+      li {
+        a {
+          color: $text-primary;
+          font-size: 1.6rem;
+          font-weight: 500;
+          text-decoration: none;
+          position: relative;
+          transition: $transition-fast;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 0;
+            height: 0.2rem;
+            background: $gradient-primary;
+            transition: $transition-normal;
+          }
+          
+          &:hover {
+            color: $primary-color;
+            
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    
+    &-actions {
+      .btn {
+        font-size: 1.4rem;
+        padding: 1rem 2rem;
+        
+        i {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+    
+    @include responsive(tab-port) {
+      position: fixed;
+      top: 8rem;
+      left: -100%;
+      width: 80%;
+      height: calc(100vh - 8rem);
+      background: $glass-color;
+      backdrop-filter: blur(1rem);
+      -webkit-backdrop-filter: blur(1rem);
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 5rem 2rem;
+      transition: $transition-slow;
+      border-radius: 0 2rem 2rem 0;
+      box-shadow: $shadow-xl;
+      
+      &.active {
+        left: 0;
+      }
+      
+      ul {
+        flex-direction: column;
+        gap: 3rem;
+        width: 100%;
+        
+        li {
+          width: 100%;
+          
+          a {
+            display: block;
+            padding: 1rem;
+            font-size: 1.8rem;
+            
+            &::after {
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 3.5rem;
+    height: 3.5rem;
+    position: relative;
+    z-index: 1001;
+    
+    span {
+      display: block;
+      width: 100%;
+      height: 0.3rem;
+      background: $text-primary;
+      margin: 0.6rem 0;
+      transition: $transition-normal;
+      border-radius: 0.5rem;
+    }
+    
+    &.active {
+      span:nth-child(1) {
+        transform: translateY(0.9rem) rotate(45deg);
+      }
+      
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      span:nth-child(3) {
+        transform: translateY(-0.9rem) rotate(-45deg);
+      }
+    }
+    
+    @include responsive(tab-port) {
+      display: block;
+    }
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
+  }
+}

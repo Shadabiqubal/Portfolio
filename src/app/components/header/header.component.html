@@ -1,0 +1,38 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <div class="container">
+    <!-- <a href="#" class="logo" data-aos="fade-down">Port<span>folio</span></a> -->
+     <a href="/" class="logo">Shadab <span>Iqubal</span></a>
+    
+    <nav class="nav" [class.active]="isMenuOpen">
+      <ul>
+        <li data-aos="fade-down" data-aos-delay="100">
+          <a href="#home" (click)="closeMenu()">Home</a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="200">
+          <a href="#about" (click)="closeMenu()">About</a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="300">
+          <a href="#skills" (click)="closeMenu()">Skills</a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="400">
+          <a href="#projects" (click)="closeMenu()">Projects</a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="500">
+          <a href="#contact" (click)="closeMenu()">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="nav-actions" data-aos="fade-down" data-aos-delay="600">
+        <button class="btn btn-primary cursor-pointer" (click)="downloadCV()">
+          Download CV <i class="fas fa-download"></i>
+        </button>
+      </div>
+    </nav>
+    
+    <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>

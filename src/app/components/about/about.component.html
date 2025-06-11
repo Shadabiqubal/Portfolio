@@ -1,0 +1,78 @@
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">About <span>Me</span></h2>
+    
+    <div class="about-content">
+      <div class="about-image" data-aos="fade-right">
+        <div class="image-wrapper">
+          <img src="assets/images/photo.png" alt="About Me">
+          <!-- <img src="assets/images/about.avif" alt="About Me"> -->
+           <!-- <img src="assets/images/profile.jpg" alt="About Me"> -->
+        </div>
+      </div>
+      
+      <div class="about-info" data-aos="fade-left">
+        <h3>Who I Am</h3>
+        <!-- <p>
+          I'm a passionate Full Stack developer with 5+ years of experience creating modern web applications. 
+          I specialize in Angular, TypeScript, and responsive design principles.
+        </p> -->
+
+        <p>
+  I'm Shadab Iqubal, a Full Stack Developer skilled in Angular, .NET Core, and SQL Server. With hands-on experience at ProtaTECH, I build scalable web apps and modern UIs that solve real-world problems. I’m passionate about clean code, learning new technologies, and delivering impactful user experiences.
+</p>
+        
+        <div class="about-details">
+          <div class="detail-item">
+            <div class="detail-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="detail-content">
+              <span>Name:</span>
+              <p>Shadab Iqubal</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <div class="detail-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="detail-content">
+              <span>Age:</span>
+              <p>23 Years</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <div class="detail-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="detail-content">
+              <span>Email:</span>
+              <p>shadabiqbal61&#64;gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <div class="detail-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="detail-content">
+              <span>Location:</span>
+              <p>Gurugram, Haryana<br />122002</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-stats">
+          <div class="stat-item" *ngFor="let stat of stats">
+            <div class="stat-info">
+              <span class="stat-number">{{ stat.value }}+ </span>
+              <span class="stat-text">{{ stat.label }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

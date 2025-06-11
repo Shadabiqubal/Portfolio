@@ -1,0 +1,28 @@
+// Colors
+$bg-primary: #0f172a;
+$bg-secondary: #1e293b;
+$text-primary: #f8fafc;
+$text-secondary: #94a3b8;
+$primary-color: #6366f1;
+$secondary-color: #8b5cf6;
+$accent-color: #ec4899;
+$glass-color: rgba(15, 23, 42, 0.7);
+
+$link-color: #6281ff;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $primary-color, $secondary-color);
+$gradient-accent: linear-gradient(135deg, $secondary-color, $accent-color);
+
+// Transitions
+$transition-fast: all 0.2s ease;
+$transition-normal: all 0.3s ease;
+$transition-slow: all 0.5s ease;

@@ -1,0 +1,78 @@
+@import './styles/variables';
+@import './styles/mixins';
+// @import './styles/animations';
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: $bg-primary;
+  color: $text-primary;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::selection {
+  background: $primary-color;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 6rem;
+  text-align: center;
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8rem;
+    height: 0.4rem;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+    border-radius: 2rem;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: darken($bg-primary, 5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient($primary-color, $secondary-color);
+  border-radius: 1rem;
+}

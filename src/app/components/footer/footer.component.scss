@@ -1,0 +1,181 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.footer {
+  background: $bg-secondary;
+  padding: 8rem 0 0;
+  
+  &-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem;
+    margin-bottom: 5rem;
+    
+    @include responsive(tab-land) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include responsive(phone) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &-about {
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $text-primary;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      display: inline-block;
+      
+      span {
+        @include gradient-text;
+      }
+    }
+    
+    p {
+      font-size: 1.5rem;
+      color: $text-secondary;
+      line-height: 1.8;
+    }
+  }
+  
+  &-links {
+    h3 {
+      font-size: 2rem;
+      color: $text-primary;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 5rem;
+        height: 0.3rem;
+        background: $gradient-primary;
+        border-radius: 0.5rem;
+      }
+    }
+    
+    ul {
+      list-style: none;
+      
+      li {
+        margin-bottom: 1.5rem;
+        
+        a {
+          font-size: 1.5rem;
+          color: $text-secondary;
+          text-decoration: none;
+          transition: $transition-fast;
+          
+          &:hover {
+            color: $primary-color;
+            padding-left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  
+  &-newsletter {
+    h3 {
+      font-size: 2rem;
+      color: $text-primary;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 5rem;
+        height: 0.3rem;
+        background: $gradient-primary;
+        border-radius: 0.5rem;
+      }
+    }
+    
+    p {
+      font-size: 1.5rem;
+      color: $text-secondary;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      
+      input {
+        flex: 1;
+        padding: 1.5rem;
+        background: $glass-color;
+        border: none;
+        border-radius: 0.5rem 0 0 0.5rem;
+        font-size: 1.5rem;
+        color: $text-primary;
+        
+        &:focus {
+          outline: none;
+        }
+        
+        &::placeholder {
+          color: $text-secondary;
+        }
+      }
+      
+      button {
+        width: 5rem;
+        background: $gradient-primary;
+        border: none;
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: $text-primary;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: $transition-normal;
+        
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+  
+  &-bottom {
+    border-top: 0.1rem solid $glass-color;
+    padding: 2rem 0;
+    @include flex-between;
+    
+    p {
+      font-size: 1.4rem;
+      color: $text-secondary;
+    }
+  }
+  
+  &-social {
+    display: flex;
+    gap: 1.5rem;
+    
+    a {
+      @include flex-center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: $glass-color;
+      color: $text-primary;
+      font-size: 1.6rem;
+      transition: $transition-normal;
+      
+      &:hover {
+        background: $gradient-primary;
+        transform: translateY(-0.5rem);
+      }
+    }
+  }
+}
